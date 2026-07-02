@@ -45,7 +45,8 @@ Para mantener el repositorio limpio y evitar conflictos de código en el servido
 
 - **Ramas de Características (feature/):** Cada desarrollador trabaja en su máquina con nomenclatura clara vinculada a Jira (ej: feature/login-auth o feature/muro-maquetacion).
 
-![note] ⚠️ **Regla de Oro:** Antes de hacer Push de una característica, el desarrollador debe traer lo nuevo de develop a su rama local (git pull origin develop), resolver conflictos en su máquina local, realizar el Commit final y luego abrir el Pull Request (PR) hacia develop para revisión del equipo.
+> [!note]
+> ⚠️ **Regla de Oro:** Antes de hacer Push de una característica, el desarrollador debe traer lo nuevo de develop a su rama local (git pull origin develop), resolver conflictos en su máquina local, realizar el Commit final y luego abrir el Pull Request (PR) hacia develop para revisión del equipo.
 
 ## 📋 Requisitos e Instalación
 Prerrequisitos
