@@ -49,3 +49,9 @@ export function renderFeed() {
 export function emptyHTML(icon, title, sub) {
   return `<div class="empty"><span class="ball">${icon}</span><h3>${esc(title)}</h3><p>${esc(sub)}</p></div>`;
 }
+
+export function missingChip(p) {
+  if (p.faltan <= 0) return '<span class="missing-chip full">Full ✓</span>';
+  if (p.faltan === 1) return '<span class="missing-chip urgent">⚡ Need 1 more!</span>';
+  return `<span class="missing-chip">${p.faltan} spots left</span>`;
+}
