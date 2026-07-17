@@ -45,3 +45,7 @@ export function renderFeed() {
     ? list.map((p) => cardHTML(p, 'home')).join('')
     : emptyHTML('🥅', 'No matches around here', 'Try another neighborhood or create your own with the + button');
 }
+
+export function emptyHTML(icon, title, sub) {
+  return `<div class="empty"><span class="ball">${icon}</span><h3>${esc(title)}</h3><p>${esc(sub)}</p></div>`;
+}
