@@ -97,3 +97,13 @@ function renderDetail(p) {
     dock.innerHTML = `<button class="btn btn-primary" onclick="joinMatch(${p.id})">Join · ${cop(p.precio)}${p.precio > 0 ? ' /player' : ''}</button>`;
   }
 }
+
+
+export async function joinMatch(id) {
+  try {
+    await api('partidos.php?action=unirme', { id });
+    toast('✅ You joined! The group chat is now open');
+    loadFeed();
+    openDetail(id, nav.backTarget);
+  } catch (e) { toast('⚠️ ' + e.message); }
+}
