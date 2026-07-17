@@ -107,3 +107,13 @@ export async function joinMatch(id) {
     openDetail(id, nav.backTarget);
   } catch (e) { toast('⚠️ ' + e.message); }
 }
+
+export async function leaveMatch(id) {
+  if (!confirm('Are you sure you want to leave the match?')) return;
+  try {
+    await api('partidos.php?action=salir', { id });
+    toast('You left the match');
+    loadFeed();
+    openDetail(id, nav.backTarget);
+  } catch (e) { toast('⚠️ ' + e.message); }
+}
