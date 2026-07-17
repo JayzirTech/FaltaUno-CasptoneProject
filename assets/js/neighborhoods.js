@@ -27,3 +27,15 @@ export async function openSheet() {
     list.innerHTML = `<div class="barrio-row">${esc(e.message)}</div>`;
   }
 }
+
+export function closeSheet() {
+  $('sheet-back').classList.remove('open');
+  $('sheet').classList.remove('open');
+}
+
+export function pickNeighborhood(b) {
+  state.neighborhood = b;
+  $('loc-label').textContent = 'Barranquilla · ' + (b || 'All neighborhoods');
+  closeSheet();
+  loadFeed();
+}
