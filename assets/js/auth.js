@@ -54,3 +54,12 @@ export async function doLogin() {
     btn.classList.remove('loading');
   }
 }
+
+
+
+export async function doLogout() {
+  try { await api('auth.php?action=logout', {}); } catch (e) {}
+  state.user = null;
+  $('app').classList.remove('logged');
+  go('auth');
+}
