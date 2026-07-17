@@ -32,4 +32,25 @@ export async function doLogin() {
   }
 
 
-  
+  export async function doRegister() {
+  const btn = $('btn-register');
+  btn.classList.add('loading');
+  $('auth-err').textContent = '';
+  try {
+    const r = await api('auth.php?action=register', {
+      nombre: $('reg-name').value,
+      email: $('reg-email').value,
+      password: $('reg-pass').value,
+      posicion: $('reg-position').value,
+      barrio: $('reg-neighborhood').value,
+      telefono: $('reg-phone').value,
+    });
+    state.user = r.user;
+    toast('🎉 Welcome to FaltaUno!');
+    enterApp();
+  } catch (e) {
+    $('auth-err').textContent = e.message;
+  } finally {
+    btn.classList.remove('loading');
+  }
+}
