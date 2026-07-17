@@ -55,3 +55,34 @@ export function missingChip(p) {
   if (p.faltan === 1) return '<span class="missing-chip urgent">⚡ Need 1 more!</span>';
   return `<span class="missing-chip">${p.faltan} spots left</span>`;
 }
+
+export function cardHTML(p, ctx) {
+  const avatars =
+    `<div class="pav" style="background:${p.creador_color}">${initials(p.creador_nombre)}</div>` +
+    (p.inscritos > 1 ? `<div class="pav more">+${p.inscritos - 1}</div>` : '');
+  return `
+  <article class="mcard" onclick="openDetail(${p.id},'${ctx}')">
+    <div class="mcard-top">
+      <svg class="mini-lines" viewBox="0 0 400 60" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#fff" stroke-width="1.6"><circle cx="200" cy="30" r="26"/><line x1="0" y1="30" x2="400" y2="30"/></g></svg>
+      <span class="fmt">${p.formato}</span>
+      <span class="when"><span class="status-dot ${isToday(p.fecha) ? 'today' : ''}"></span>${formatDate(p.fecha)} · ${formatTime(p.hora)}</span>
+    </div>
+    <div class="mcard-body">
+      <h3>${esc(p.cancha)}</h3>
+      <div class="meta-row">
+        <span>📍 ${esc(p.barrio)}</span><span class="dot"></span>
+        <span>${esc(p.tipo_cancha)}</span><span class="dot"></span>
+        <span>${p.duracion_min} min</span>
+      </div>
+      <div class="mcard-foot">
+        <div class="players">${avatars}</div>
+        ${missingChip(p)}
+      </div>
+      <div class="price-lvl">
+        <span class="pill price">${cop(p.precio)}${p.precio > 0 ? ' /player' : ''}</span>
+        <span class="pill">Level ${p.nivel}</span>
+        ${p.unido ? '<span class="joined-tag">✓ Joined</span>' : ''}
+      </div>
+    </div>
+  </article>`;
+}
