@@ -63,3 +63,17 @@ export async function doLogout() {
   $('app').classList.remove('logged');
   go('auth');
 }
+
+
+export function enterApp() {
+  const u = state.user;
+  $('app').classList.add('logged');
+  $('side-ava').textContent = initials(u.nombre);
+  $('side-ava').style.background = u.avatar_color;
+  $('side-name').textContent = u.nombre.split(' ')[0];
+  $('head-avatar').textContent = initials(u.nombre);
+  $('head-avatar').style.background = u.avatar_color;
+  $('greeting-h1').innerHTML = `Playing today, <em>${esc(u.nombre.split(' ')[0])}</em>?`;
+  go('home');
+  loadFeed();
+}
