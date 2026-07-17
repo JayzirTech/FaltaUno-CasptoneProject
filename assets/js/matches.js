@@ -19,3 +19,21 @@ export async function renderMyMatches() {
     el.innerHTML = emptyHTML('📡', 'Error loading', e.message);
   }
 }
+
+
+export async function openDetail(id, from) {
+  if (window.event) window.event.stopPropagation();
+  nav.detailId = id;
+  nav.backTarget = from || 'home';
+  $('detail-title').innerHTML = '';
+  $('detail-body').innerHTML = '<div class="skel"></div>';
+  $('detail-cta').innerHTML = '';
+  go('detail');
+
+  try {
+    const r = await api('partidos.php?id=' + id);
+    renderDetail(r.partido);
+  } catch (e) {
+    $('detail-body').innerHTML = emptyHTML('📡', 'Error', e.message);
+  }
+}
