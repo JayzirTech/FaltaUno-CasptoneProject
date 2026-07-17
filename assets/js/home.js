@@ -20,3 +20,15 @@ function filterQuery() {
   if (q) p.set('q', q);
   return p.toString();
 } 
+
+export async function loadFeed() {
+  const feed = $('feed');
+  feed.innerHTML = '<div class="skel"></div><div class="skel"></div><div class="skel"></div>';
+  try {
+    const r = await api('partidos.php?' + filterQuery());
+    state.matches = r.partidos;
+    renderFeed();
+  } catch (e) {
+    feed.innerHTML = emptyHTML('📡', "We couldn't load the matches", e.message);
+  }
+}
