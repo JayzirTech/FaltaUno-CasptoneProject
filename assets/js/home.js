@@ -8,3 +8,15 @@ export function setFilter(btn) {
   state.filter = btn.dataset.f;
   loadFeed();
 }
+
+function filterQuery() {
+  const p = new URLSearchParams();
+  if (state.neighborhood) p.set('barrio', state.neighborhood);
+  if (['F5', 'F7', 'F11'].includes(state.filter)) p.set('formato', state.filter);
+  if (state.filter === 'today') p.set('dia', 'hoy');
+  if (state.filter === 'free') p.set('gratis', '1');
+  if (state.filter === 'needs1') p.set('falta1', '1');
+  const q = $('search-input').value.trim();
+  if (q) p.set('q', q);
+  return p.toString();
+} 
