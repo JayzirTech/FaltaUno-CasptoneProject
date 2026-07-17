@@ -32,3 +32,16 @@ export async function loadFeed() {
     feed.innerHTML = emptyHTML('📡', "We couldn't load the matches", e.message);
   }
 }
+
+export function renderFeed() {
+  const list = state.matches;
+  $('sec-count').textContent = list.length + (list.length === 1 ? ' match' : ' matches');
+  $('sec-title').textContent = state.neighborhood ? 'Matches in ' + state.neighborhood : 'Matches near you';
+  const todayN = list.filter((p) => isToday(p.fecha)).length;
+  $('head-sub').textContent = list.length
+    ? `${list.length} match${list.length !== 1 ? 'es' : ''} looking for players${todayN ? ` · ${todayN} today` : ''}`
+    : 'Create the first match in your neighborhood';
+  $('feed').innerHTML = list.length
+    ? list.map((p) => cardHTML(p, 'home')).join('')
+    : emptyHTML('🥅', 'No matches around here', 'Try another neighborhood or create your own with the + button');
+}
