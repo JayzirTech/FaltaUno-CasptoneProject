@@ -127,3 +127,16 @@ export async function cancelMatch(id) {
     go('home');
   } catch (e) { toast('⚠️ ' + e.message); }
 }
+
+export function goBack() {
+  go(nav.backTarget);
+}
+
+export function shareMatch() {
+  const url = location.origin + location.pathname + '#partido-' + nav.detailId;
+  if (navigator.share) {
+    navigator.share({ title: 'FaltaUno ⚽', text: 'Join this match!', url }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(url).then(() => toast('🔗 Link copied'));
+  }
+}
