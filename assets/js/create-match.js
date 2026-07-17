@@ -11,3 +11,9 @@ export function initCreateMatch() {
   $('c-date').min = today.toISOString().slice(0, 10);
   if (!$('c-date').value) $('c-date').value = today.toISOString().slice(0, 10);
 }
+
+export function pickFormat(btn) {
+  document.querySelectorAll('#c-format .seg-btn').forEach((b) => b.classList.remove('on'));
+  btn.classList.add('on');
+  $('c-spots').value = SPOTS_BY_FORMAT[btn.dataset.v];
+}
