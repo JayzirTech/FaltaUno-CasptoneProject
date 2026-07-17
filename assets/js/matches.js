@@ -117,3 +117,13 @@ export async function leaveMatch(id) {
     openDetail(id, nav.backTarget);
   } catch (e) { toast('⚠️ ' + e.message); }
 }
+
+export async function cancelMatch(id) {
+  if (!confirm('Cancel the match for all players?')) return;
+  try {
+    await api('partidos.php?action=cancelar', { id });
+    toast('Match canceled');
+    loadFeed();
+    go('home');
+  } catch (e) { toast('⚠️ ' + e.message); }
+}
