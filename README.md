@@ -1,67 +1,61 @@
-# ⚽ FaltaUno - Proyecto Integrador RIWI
+# ⚽ FaltaUno - RIWI Capstone Project
 
-¡Bienvenido a **FaltaUno**! La plataforma web diseñada para eliminar la fricción a la hora de organizar partidos de fútbol. Si te falta un jugador para completar el partido de esta noche o estás buscando un equipo al cual unirte en tu zona, FaltaUno te conecta en tiempo real.
+Welcome to **FaltaUno**! The web platform designed to eliminate friction when organizing soccer matches. If you are missing a player to complete tonight's match or are looking for a team to join in your area, FaltaUno connects you in real time.
 
-Este proyecto ha sido desarrollado bajo metodologías ágiles (Scrum) como parte del Proyecto Integrador en **RIWI**.
-
----
-
-## 🚀 Características del MVP (Mínimo Producto Viable)
-
-FaltaUno resuelve el problema del "teléfono roto" y las cancelaciones de última hora mediante 4 módulos principales (Épicas):
-
-1. **Autenticación y Perfiles Seguros:** Registro e inicio de sesión con contraseñas encriptadas en el backend y perfiles donde los jugadores definen su posición en la cancha y contacto.
-2. **Muro Principal de Partidos:** Espacio donde los organizadores publican vacantes (fecha, hora, lugar, precio de la cancha, cupos faltantes) y los usuarios buscan partidos activos usando filtros dinámicos.
-3. **Sistema de Postulaciones (Matchmaking):** Los jugadores se postulan a los partidos disponibles y el organizador tiene el control total para aceptarlos o rechazarlos en tiempo real, gestionando las vacantes concurrentes.
-4. **Panel de Control del Organizador:** Vista centralizada para que cada usuario gestione los partidos que ha creado y administre las postulaciones activas.
+This project was developed under agile methodologies (Scrum) as part of the Capstone Project at **RIWI**.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🚀 MVP (Minimum Viable Product) Features
 
-Para garantizar una experiencia fluida emulando una aplicación móvil nativa, el proyecto se construyó utilizando la siguiente arquitectura:
+FaltaUno solves the problem of "miscommunication" and last-minute cancellations through 4 main modules (Epics):
 
-* **Frontend:** JavaScript Vanilla (ES6+), HTML5, CSS3 estructurado bajo la arquitectura de una **SPA (Single Page Application)** con enrutamiento dinámico nativo (sin recargas de página).
-* **Backend:** Node.js (Express) encargado de la lógica de negocio, protección de rutas y hashing de seguridad.
-* **Base de Datos:** PostgreSQL. Diseñada estrictamente en **Tercera Forma Normal (3FN)** para garantizar la consistencia, evitar redundancia y asegurar un control óptimo de cupos concurrentes.
+1. **Secure Authentication and Profiles:** Registration and login with encrypted passwords on the backend, and profiles where players define their position on the field and contact information.
+2. **Main Match Wall:** A space where organizers publish openings (date, time, location, field price, missing spots) and users search for active matches using dynamic filters.
+3. **Application System (Matchmaking):** Players apply to available matches, and the organizer has full control to accept or reject them in real time, managing concurrent openings.
+4. **Organizer Dashboard:** A centralized view for each user to manage the matches they have created and administer active applications.
 
-## 👥 Nuestro Equipo y Roles (Metodología Scrum)
-Somos un equipo de 6 integrantes estructurados bajo el marco de trabajo ágil para simular una empresa de software real:
+---
 
-- **Scrum Master / Líder Técnico:** Coordinación del tablero Jira, remoción de impedimentos y control del alcance del Sprint.
+## 🛠️ Tech Stack
 
-- **Analista de Producto / QA:** Redacción de Historias de Usuario, maquetación de bocetos, validaciones de formularios y pruebas intensivas de calidad libres de bugs.
+To ensure a smooth experience emulating a native mobile application, the project was built using the following architecture:
 
-- **Equipo Frontend (2 Desarrolladores):** Maquetación de interfaces dinámicas en la SPA y consumo de las APIs del servidor.
+* **Frontend:** Vanilla JavaScript (ES6+), HTML5, CSS3 structured under a **SPA (Single Page Application)** architecture with native dynamic routing (no page reloads).
+* **Backend:** Node.js (Express) responsible for business logic, route protection, and security hashing.
+* **Database:** MySQL. Strictly designed in **Third Normal Form (3NF)** to ensure consistency, avoid redundancy, and guarantee optimal management of concurrent spots.
 
-- **Equipo Backend (2 Desarrolladores):**    Arquitectura y normalización de la base de datos, encriptación mediante hashing (Bcrypt) y desarrollo de endpoints de negocio.
+## 👥 Our Team and Roles (Scrum Methodology)
+We are a team of members structured under the agile framework to simulate a real software company:
 
-## 🏁 Flujo de Trabajo Git (Reglas de Oro)
-Para mantener el repositorio limpio y evitar conflictos de código en el servidor remoto, el equipo sigue este flujo estricto:
+- **Scrum Master / Technical Lead:** Jira board coordination, blocker removal, and Sprint scope control.
+  -Jayzir Martinez
 
-- **Rama Principal (main):** Solo código en producción 100% estable.
+- **Frontend Team (2 Developers):** Layout of dynamic interfaces in the SPA and consumption of server APIs.
+  -Guillermo de León Rojano
+  -Joel Hernández
 
-- **Rama de Integración (develop):** Donde se fusionan las características terminadas.
 
-- **Ramas de Características (feature/):** Cada desarrollador trabaja en su máquina con nomenclatura clara vinculada a Jira (ej: feature/login-auth o feature/muro-maquetacion).
+- **Backend Team (2 Developers):** Database architecture and normalization, encryption using hashing (Bcrypt), and development of business endpoints.
+  -Julian Vanegas
+  -Camilo Andrés Meza Vásquez
+
+## 🏁 Git Workflow (Golden Rules)
+To keep the repository clean and avoid code conflicts on the remote server, the team follows this strict workflow:
+
+- **Main Branch (main):** Only 100% stable production code.
+
+- **Integration Branch (develop):** Where finished features are merged.
+
+- **Feature Branches (feature/):** Each developer works on their local machine with a clear naming convention linked to Jira (e.g., feature/login-auth or feature/muro-maquetacion).
 
 > [!note]
-> ⚠️ **Regla de Oro:** Antes de hacer Push de una característica, el desarrollador debe traer lo nuevo de develop a su rama local (git pull origin develop), resolver conflictos en su máquina local, realizar el Commit final y luego abrir el Pull Request (PR) hacia develop para revisión del equipo.
+> ⚠️ **Golden Rule:** Before pushing a feature, the developer must pull the latest changes from develop into their local branch (git pull origin develop), resolve conflicts on their local machine, make the final commit, and then open a Pull Request (PR) to develop for team review.
 
-## 📋 Requisitos e Instalación
-Prerrequisitos
-Node.js
-Gestor de bases de datos relacionales (MySQL o PostgreSQL).
-
-- **Instalación Local**
-Clona el repositorio:
+- **Code Review**
+Clone the repository:
   ```bash
-  git clone https://github.com/JayzirTech/FaltaUno-CustomProject.git
-  ```
-- **Configura las variables de entorno:**
- Ve a la carpeta server/, crea un archivo .env guiándote de .env.example y añade las credenciales de tu base de datos local.
+  git clone [https://github.com/JayzirTech/FaltaUno-CasptoneProject.git](https://github.com/JayzirTech/FaltaUno-CasptoneProject.git)
 
-- **Importa la base de datos:**
- Ejecuta el script ubicado en server/database/ en tu gestor de base de datos.
-
-¡Inicia el proyecto y a jugar!
+> [!note]
+> ⚠️ Using `git clone` will only allow you to obtain the project's source code, but you won't be able to run the application because you won't have access to the database. To see the application in action, go to the following link: [FaltaUno - Proyecto Integrador RIWI](https://cambiadigital.co/faltauno-app/). Log in using the email address: **carlos@demo.co** and the password: **faltauno123** to access the application.
