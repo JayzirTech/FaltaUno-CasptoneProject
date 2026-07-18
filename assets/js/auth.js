@@ -30,9 +30,9 @@ export async function doLogin() {
   } finally {
     btn.classList.remove('loading');
   }
+}
 
-
-  export async function doRegister() {
+export async function doRegister() {
   const btn = $('btn-register');
   btn.classList.add('loading');
   $('auth-err').textContent = '';
@@ -58,7 +58,7 @@ export async function doLogin() {
 
 
 export async function doLogout() {
-  try { await api('auth.php?action=logout', {}); } catch (e) {}
+  try { await api('auth.php?action=logout', {}); } catch (e) { }
   state.user = null;
   $('app').classList.remove('logged');
   go('auth');
